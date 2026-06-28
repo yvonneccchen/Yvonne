@@ -1,0 +1,784 @@
+/* ==========================================================================
+   終極全域格式化與排毒 (Ultimate Reset)
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #FDFBF7 !important; /* 溫暖米白 */
+  color: #1A1A1A !important;
+  font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+  /* 強制啟動標準滾動，斬斷所有隱形鎖死 */
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  scroll-behavior: smooth;
+}
+
+#root, .app-container {
+  width: 100%;
+  display: block; /* 改為最穩定的區塊佈局，確保 sticky 的軌道暢通 */
+}
+
+body {
+  line-height: 1.25; /* 嚴格執行 1.25 行高 */
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 暫時給其他未完成的 section 高度以利測試滾動 */
+section {
+  padding: 100px 0;
+}
+
+/* ==========================================================================
+   Header 置頂導覽列 (100% 絕對黏著版)
+   ========================================================================== */
+.site-header {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  background-color: rgba(252, 252, 197, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  width: 100%;
+}
+
+.header-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: 0.5px;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #1A1A1A;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+  color: #FF6F61; /* 珊瑚橘 */
+}
+
+/* ==========================================================================
+   Hero 主視覺區樣式 (日系極簡職人風)
+   ========================================================================== */
+.hero-section {
+  padding: 160px 0 120px 0; /* 給予頂部充足留白，完美避開 Header */
+  background-color: #FDFBF7;
+  text-align: left; /* 職人冷靜風格，採左對齊 */
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111111;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6; /* 內文稍微放寬，提升硬核乾貨好讀性 */
+  color: #4A4A4A;
+  max-width: 720px; /* 限制寬度，避免文字太長造成視覺疲勞 */
+  margin-bottom: 40px;
+}
+
+/* 珊瑚橘主色 CTA 按鈕 */
+.btn-primary {
+  display: inline-block;
+  background-color: #FF6F61;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px; /* 微圓角，沉穩內斂 */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #E65547; /* 深珊瑚橘 */
+  transform: translateY(-1px); /* 輕微懸浮感 */
+}
+/* ==========================================================================
+   About 關於我區塊樣式
+   ========================================================================== */
+.about-section {
+  background-color: #FDFBF7; /* 維持純淨溫暖米白 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 48px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* 經典日系極簡點綴：標題下方一條淡淡的珊瑚橘短線 */
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #FF6F61;
+}
+
+/* 建立 Flexbox 兩欄式佈局 */
+.about-grid {
+  display: flex;
+  gap: 60px; /* 兩欄之間的呼吸間距 */
+  align-items: flex-start;
+}
+
+.about-left {
+  flex: 1.2; /* 讓經歷佔據稍微大一點的寬度 */
+}
+
+.about-left h3 {
+  font-size: 1.25rem;
+  color: #111111;
+  margin-bottom: 24px;
+}
+
+.experience-list {
+  list-style: none;
+}
+
+.experience-list li {
+  margin-bottom: 24px;
+  padding-left: 16px;
+  border-left: 2px solid #E0E0E0; /* 灰色的秩序感垂直線 */
+  transition: border-color 0.2s ease;
+}
+
+/* 滑鼠移到該經歷時，垂直線優雅轉為珊瑚橘 */
+.experience-list li:hover {
+  border-left-color: #FF6F61;
+}
+
+.experience-list strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.experience-list p {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.5;
+}
+
+.about-right {
+  flex: 1;
+}
+
+/* 右側特質手札卡片 */
+.profile-card {
+  background-color: #FFFFFF; /* 純白底色突顯層次 */
+  padding: 30px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* 極輕微的陰影 */
+}
+
+.profile-card h4 {
+  font-size: 1.05rem;
+  color: #111111;
+  margin-bottom: 10px;
+}
+
+.profile-card h4:not(:first-child) {
+  margin-top: 20px; /* 第二個小標題的頂部間距 */
+}
+
+.profile-text {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.5;
+}
+
+/* 核心名言金句宣告 */
+.profile-quote {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px dashed #FF6F61; /* 珊瑚橘虛線裝飾 */
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #FF6F61;
+  line-height: 1.5;
+}
+/* ==========================================================================
+   Services 服務區塊樣式
+   ========================================================================== */
+.services-section {
+  background-color: #F8F6F2; /* 輕盈淺灰與米白的交錯過渡背景 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.services-section .container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.section-subtitle-text {
+  font-size: 1rem;
+  color: #555555;
+  margin-top: -30px;
+  margin-bottom: 48px;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* 卡片容器：Flex 併排 */
+.services-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* 單張卡片基礎樣式 */
+.service-card {
+  flex: 1; /* 讓三張卡片平分寬度 */
+  background-color: #FFFFFF;
+  padding: 40px 30px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* 平滑動態曲線 */
+}
+
+/* 日系職人點綴：卡片頂部的隱形裝飾線，懸停時會亮起 */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #E0E0E0;
+  transition: background-color 0.25s ease;
+}
+
+/* 滑鼠懸停卡片特效 */
+.service-card:hover {
+  transform: translateY(-4px); /* 卡片微微浮起 */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); /* 溫和陰影 */
+}
+
+.service-card:hover::before {
+  background-color: #FF6F61; /* 頂部裝飾線亮起珊瑚橘色 */
+}
+
+/* 卡片上方的小標籤 */
+.card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FF6F61; /* 珊瑚橘 */
+  background-color: rgba(255, 111, 97, 0.08); /* 淡淡的珊瑚橘底色 */
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  color: #111111;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.6;
+}
+/* ==========================================================================
+   Articles / Blog 知識庫區塊樣式 (日系雜誌線條風)
+   ========================================================================== */
+.blog-section {
+  background-color: #FDFBF7; /* 回歸乾淨溫暖米白 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.blog-list {
+  max-width: 900px; /* 限制寬度，讓閱讀文章列表時視線更集中，展現雜誌感 */
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+/* 每篇文章項目的容器 */
+.blog-item {
+  display: flex;
+  padding: 40px 0;
+  border-bottom: 1px solid #EDEDED; /* 俐落輕盈的橫線分隔 */
+  align-items: flex-start;
+}
+
+/* 讓最後一篇文章沒有底線，維持減法美學 */
+.blog-item:last-child {
+  border-bottom: none;
+}
+
+/* 左側：分類標籤區 */
+.blog-meta {
+  flex: 0 0 160px; /* 固定寬度，確保所有標籤整齊對齊 */
+}
+
+.blog-category {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #FF6F61;
+  border: 1px solid #FF6F61; /* 珊瑚橘空心線條框 */
+  padding: 3px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* 右側：標題與大綱 */
+.blog-content {
+  flex: 1;
+}
+
+.blog-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.blog-title a {
+  text-decoration: none;
+  color: #111111;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.blog-title a:hover {
+  color: #FF6F61; /* 懸停時標題變珊瑚橘 */
+}
+
+.blog-excerpt {
+  font-size: 0.95rem;
+  color: #666666; /* 內文稍微放輕，拉開與標題的層次 */
+  line-height: 1.6;
+}
+/* ==========================================================================
+   Resources 資源區塊樣式 (CSS Grid 極簡網格)
+   ========================================================================== */
+.resources-section {
+  background-color: #F8F6F2; /* 輕盈淺灰與米白交錯背景 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* 使用 CSS Grid 網格佈局 */
+.resources-grid {
+  display: grid;
+  /* 兩欄排版：寬度平分。未來若資源變多，會自動整齊往下折行 */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 30px;
+  width: 100%;
+}
+
+/* 單個資源卡片 */
+.resource-item-card {
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resource-type-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #888888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.resource-item-card h3 {
+  font-size: 1.1rem;
+  color: #111111;
+  margin-bottom: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.resource-item-card p {
+  font-size: 0.9rem;
+  color: #666666;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* 右下角俐落的箭頭符號 */
+.resource-download-arrow {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  font-size: 1.3rem;
+  color: #CCCCCC;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+/* 滑鼠懸停特效：框線變微珊瑚橘，箭頭向右微滑並變珊瑚橘 */
+.resource-item-card:hover {
+  border-color: rgba(255, 111, 97, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+}
+
+.resource-item-card:hover .resource-download-arrow {
+  color: #FF6F61;
+  transform: translateX(5px); /* 箭頭向右優雅推進 */
+}
+/* ==========================================================================
+   Results 成果與實績區塊樣式 (工業級數據看板)
+   ========================================================================== */
+.results-section {
+  background-color: #FDFBF7; /* 回歸乾淨溫暖米白 */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* 數據指標網格 */
+.results-counter-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  border-bottom: 1px solid #EDEDED;
+  padding-bottom: 40px;
+}
+
+.metric-item {
+  flex: 1;
+  text-align: center;
+}
+
+/* 巨大數字樣式，凸顯權威感 */
+.metric-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #FF6F61; /* 珊瑚橘主色 */
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+/* 數字後面的單位小字 */
+.metric-number span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #111111;
+  margin-left: 4px;
+}
+
+.metric-label {
+  font-size: 0.95rem;
+  color: #555555;
+  font-weight: 500;
+}
+
+/* 下方細部實績排版 */
+.results-details {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.details-column {
+  flex: 1;
+}
+
+.details-column h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 16px;
+}
+
+.details-column p {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.6;
+}
+
+/* 實績條列清單 */
+.results-bullet-list {
+  list-style: none;
+}
+
+.results-bullet-list li {
+  font-size: 0.95rem;
+  color: #4A4A4A;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  position: relative;
+  padding-left: 18px;
+}
+
+/* 日系精緻正方形點綴符號 */
+.results-bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background-color: #FF6F61; /* 珊瑚橘小方塊 */
+}
+
+.results-bullet-list strong {
+  color: #111111;
+}
+/* ==========================================================================
+   Contact 聯絡我區塊樣式
+   ========================================================================== */
+.contact-section {
+  background-color: #F8F6F2; /* 輕盈淺灰背景 */
+  padding-bottom: 140px; /* 底部加深留白，讓動線收尾更從容 */
+}
+
+.contact-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  padding: 50px 40px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+  text-align: center; /* 聯絡卡片採置中對齊，強化行動呼籲 */
+}
+
+.contact-card h3 {
+  font-size: 1.4rem;
+  color: #111111;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.contact-card p {
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto 24px auto;
+}
+
+.contact-notice {
+  font-size: 0.85rem !important;
+  color: #888888 !important;
+  font-style: italic;
+}
+
+.contact-cta-wrapper {
+  margin-top: 32px;
+}
+
+/* 聯絡區塊專用大型珊瑚橘按鈕 */
+.btn-secondary {
+  display: inline-block;
+  background-color: #FF6F61;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 16px 40px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(255, 111, 97, 0.3); /* 帶有珊瑚橘氛圍的溫和陰影 */
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #E65547;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 111, 97, 0.4);
+}
+
+/* ==========================================================================
+   Footer 頁尾樣式 (日系沉穩深灰)
+   ========================================================================== */
+.site-footer {
+  background-color: #0e0e0e; /* 採用沉穩內斂的深灰色 */
+  color: #FFFFFF;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.footer-container-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+}
+
+.footer-slogan {
+  font-size: 0.9rem;
+  color: #A0A0A0; /* 柔和的灰色小字 */
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: #666666;
+  margin-top: 12px;
+  border-top: 1px solid #3b3a3a;
+  padding-top: 16px;
+  width: 100%;
+  max-width: 300px;
+}
+/* ==========================================================================
+   Responsive Web Design (RWD) 響應式手機端優化斷點
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* 1. 全域間距微調 */
+  section {
+    padding: 60px 0; /* 手機端留白稍微縮小，避免滑動過長 */
+  }
+  
+  /* 2. Header 導覽列 RWD 調整 */
+  .header-container {
+    flex-direction: column; /* 手機端讓 Logo 與 選單上下並列 */
+    gap: 12px;
+    padding: 15px 20px;
+  }
+  
+  .navigation ul {
+    gap: 16px; /* 縮小選單項目間距，防止超出螢幕 */
+  }
+  
+  .navigation a {
+    font-size: 0.9rem;
+  }
+
+  /* 3. Hero 主視覺區 RWD */
+  .hero-section {
+    padding: 100px 0 60px 0; /* 縮減頂部留白 */
+  }
+
+  .hero-title {
+    font-size: 1.8rem; /* 標題字級縮小，防止英文或長句斷行突兀 */
+    line-height: 1.4;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* 4. About 關於我區塊 RWD */
+  .about-grid {
+    flex-direction: column; /* 從左右兩欄，強制轉為上下單欄 */
+    gap: 40px;
+  }
+  
+  /* 5. Services 服務卡片 RWD */
+  .services-grid {
+    flex-direction: column; /* 3 張卡片改為垂直堆疊 */
+    gap: 20px;
+  }
+  
+  .service-card {
+    padding: 30px 20px;
+  }
+  
+  /* 6. Articles 知識庫列表 RWD */
+  .blog-item {
+    flex-direction: column; /* 分類標籤與文章大綱改為上下排列 */
+    gap: 12px;
+    padding: 30px 0;
+  }
+  
+  .blog-meta {
+    flex: none;
+    width: auto;
+  }
+
+  /* 7. Resources 資源網格 RWD */
+  .resources-grid {
+    grid-template-columns: 1fr; /* 從兩欄 Grid 強制轉為單欄 100% 寬度 */
+    gap: 20px;
+  }
+
+  /* 8. Results 成果看板 RWD */
+  .results-counter-grid {
+    flex-direction: column; /* 3 個巨大數字改為上下立正排列 */
+    gap: 30px;
+    padding-bottom: 30px;
+  }
+
+  .metric-number {
+    font-size: 2.8rem;
+  }
+
+  .results-details {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* 9. Contact 聯絡卡片 RWD */
+  .contact-card {
+    padding: 40px 20px;
+  }
+
+  .btn-secondary {
+    width: 100%; /* 讓手機端的按鈕滿版，方便大拇指輕鬆點擊 */
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}
